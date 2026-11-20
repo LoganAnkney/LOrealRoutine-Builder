@@ -1,89 +1,124 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Logan Ankney creates games, worlds, art, and music." />
-  <title>Logan Ankney | Game Creator</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@500;600;700&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet" />
-  <link href="style.css" rel="stylesheet" type="text/css" />
-</head>
-<body>
-  <div class="page-glow" aria-hidden="true"></div>
-  <header class="site-header">
-    <a class="logo" href="#home">LA<span>/</span></a>
-    <nav aria-label="Main navigation">
-      <a href="#about">About Me</a>
-      <a href="#skills">Skills</a>
-      <a class="nav-button" href="mailto:logan@example.com">Contact <span aria-hidden="true">↗</span></a>
-    </nav>
-  </header>
+<html lang="en" dir="ltr" id="htmlRoot">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>L'Oréal Smart Product Advisor</title>
+    <link
+      href="https://fonts.googleapis.com/icon?family=Material+Icons"
+      rel="stylesheet"
+    />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500;700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="stylesheet" href="style.css" />
+  </head>
 
-  <main>
-    <section class="hero" id="home">
-      <p class="eyebrow"><span class="pulse"></span> Game creator / digital storyteller</p>
-      <h1>Logan Ankney</h1>
-      <p class="hero-tagline">Creating Worlds</p>
-      <p class="hero-copy">Hi, I'm Logan Ankney. I make interactive experiences with code, art, and sound.</p>
-      <div class="hero-actions">
-        <a class="hero-link" href="#about">Discover my work <span aria-hidden="true">↓</span></a>
-        <a class="hero-link secondary" href="#showcase">Games that inspire me</a>
-        <a class="hero-link secondary" href="#skills">Skills</a>
-      </div>
-      <div class="hero-stamp" aria-hidden="true">PLAY<br /><span>CREATE</span><br />REPEAT</div>
-    </section>
-
-    <section class="about" id="about">
-      <div class="section-tag">01 / About</div>
-      <div class="about-content">
-        <h2>From first sketch<br />to final <em>frame.</em></h2>
-        <p>I love video games. Ever since I was a kid, I wanted to understand how they worked and enjoyed the art and music that exemplify the game itself. I've created games of my own through college courses and want to make something that can inspire other kids like games inspired me.</p>
-      </div>
-    </section>
-
-    <section class="showcase" id="showcase">
-      <div class="section-tag">02 / Games that inspired me</div>
-      <div class="showcase-grid">
-        <article class="showcase-card card-one">
-          <div>
-            <span class="card-number">01</span>
-            <h3>The Legend of Zelda</h3>
-            <p>Breath of the Wild</p>
-          </div>
-        </article>
-        <article class="showcase-card card-two">
-          <div>
-            <span class="card-number">02</span>
-            <h3>Mario</h3>
-            <p>Super Mario Odyssey</p>
-          </div>
-        </article>
-        <article class="showcase-card card-three">
-          <div>
-            <span class="card-number">03</span>
-            <h3>Pokemon</h3>
-            <p></p>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="skills" id="skills">
-      <div class="section-tag">03 / Skills</div>
-      <div class="skills-content">
-        <h2>Tools for<br /><em>making play.</em></h2>
-        <div class="skill-list">
-          <div class="skill"><span>01</span><h3>Coding in Unreal Engine and Unity</h3><b>↗</b></div>
-          <div class="skill"><span>02</span><h3>Game Art</h3><b>↗</b></div>
-          <div class="skill"><span>03</span><h3>Game Music</h3><b>↗</b></div>
+  <body>
+    <div class="page-wrapper">
+      <!------- Header / Branding & RTL Toggle ------->
+      <header class="site-header">
+        <div class="header-top">
+          <h1 class="site-title">Smart Product Advisor</h1>
+          <button
+            type="button"
+            id="rtlToggleBtn"
+            class="rtl-toggle-btn"
+            aria-label="Toggle Right-to-Left Mode"
+          >
+            عربي / RTL
+          </button>
         </div>
-      </div>
-    </section>
-  </main>
+      </header>
 
-  <footer><span>© 2026 Logan Ankney</span><span>Keep making things</span><a href="#home">Back to top ↑</a></footer>
-</body>
-</script src="script.js"></script>
-</html> 
+      <!------- Main Content Area ------->
+      <main>
+        <!------- Product Grid & Selection ------->
+        <section class="products-section">
+          <h2>Explore L'Oréal Products</h2>
+          <p class="subtitle">
+            Click a card to add it to your routine, or click "Show Details" to read more.
+          </p>
+
+          <!-- Search and Category Filter Controls -->
+          <div class="filter-controls">
+            <label for="productSearchInput" class="visually-hidden">Search products</label>
+            <input
+              type="text"
+              id="productSearchInput"
+              class="search-input"
+              placeholder="Search by product name or keyword..."
+              autocomplete="off"
+            />
+
+            <label for="categoryFilter" class="visually-hidden">Filter by category</label>
+            <select id="categoryFilter" class="category-select">
+              <option value="All">All Categories</option>
+              <option value="Skincare">Skincare</option>
+              <option value="Makeup">Makeup</option>
+              <option value="Haircare">Haircare</option>
+              <option value="Fragrance">Fragrance</option>
+            </select>
+          </div>
+
+          <!-- Product cards will be injected here via JavaScript -->
+          <div id="productGrid" class="product-grid"></div>
+
+          <!-- Selected Products List -->
+          <div class="selected-box">
+            <h3>Selected Products (<span id="selectedCount">0</span>)</h3>
+            <ul id="selectedList" class="selected-list">
+              <li class="empty-msg">No products selected yet.</li>
+            </ul>
+
+            <!-- Action buttons for selected products -->
+            <div id="selectedActions" class="selected-actions hidden">
+              <button type="button" id="generateRoutineBtn" class="generate-btn">
+                Generate Routine
+              </button>
+              <button type="button" id="clearAllBtn" class="clear-btn">
+                Clear All
+              </button>
+            </div>
+          </div>
+        </section>
+
+        <!------- Chat Area ------->
+        <section class="chatbox">
+          <div id="chatWindow" class="chat-window">
+            <!-- messages will be appended here via JS -->
+          </div>
+
+          <form id="chatForm" class="chat-form">
+            <label for="userInput" class="visually-hidden">Message</label>
+            <input
+              id="userInput"
+              name="userInput"
+              type="text"
+              placeholder="Ask me about products or routines…"
+              autocomplete="off"
+              required
+            />
+            <button type="submit" id="sendBtn">
+              <span class="material-icons">send</span>
+              <span class="visually-hidden">Send</span>
+            </button>
+          </form>
+        </section>
+      </main>
+
+      <!------- Footer Links ------->
+      <footer class="site-footer">
+        <p>&copy; 2026 L'Oréal Smart Product Advisor. All rights reserved.</p>
+        <nav>
+          <a href="#">Privacy Policy</a>
+          <a href="#">Terms of Use</a>
+          <a href="#">Contact</a>
+        </nav>
+      </footer>
+    </div>
+
+    <script src="script.js"></script>
+  </body>
+</html>
