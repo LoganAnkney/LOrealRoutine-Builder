@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en" dir="ltr" id="htmlRoot">
+<html lang="en">
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>L'Oréal Smart Product Advisor</title>
+    <title>Chat Assistant</title>
     <link
       href="https://fonts.googleapis.com/icon?family=Material+Icons"
       rel="stylesheet"
@@ -17,74 +17,13 @@
 
   <body>
     <div class="page-wrapper">
-      <!------- Header / Branding & RTL Toggle ------->
+      <!------- Header / Branding ------->
       <header class="site-header">
-        <div class="header-top">
-          <h1 class="site-title">Smart Product Advisor</h1>
-          <button
-            type="button"
-            id="rtlToggleBtn"
-            class="rtl-toggle-btn"
-            aria-label="Toggle Right-to-Left Mode"
-          >
-            عربي / RTL
-          </button>
-        </div>
+        <h1 class="site-title">Smart Product Advisor</h1>
       </header>
 
-      <!------- Main Content Area ------->
+      <!------- Chat Area ------->
       <main>
-        <!------- Product Grid & Selection ------->
-        <section class="products-section">
-          <h2>Explore L'Oréal Products</h2>
-          <p class="subtitle">
-            Click a card to add it to your routine, or click "Show Details" to read more.
-          </p>
-
-          <!-- Search and Category Filter Controls -->
-          <div class="filter-controls">
-            <label for="productSearchInput" class="visually-hidden">Search products</label>
-            <input
-              type="text"
-              id="productSearchInput"
-              class="search-input"
-              placeholder="Search by product name or keyword..."
-              autocomplete="off"
-            />
-
-            <label for="categoryFilter" class="visually-hidden">Filter by category</label>
-            <select id="categoryFilter" class="category-select">
-              <option value="All">All Categories</option>
-              <option value="Skincare">Skincare</option>
-              <option value="Makeup">Makeup</option>
-              <option value="Haircare">Haircare</option>
-              <option value="Fragrance">Fragrance</option>
-            </select>
-          </div>
-
-          <!-- Product cards will be injected here via JavaScript -->
-          <div id="productGrid" class="product-grid"></div>
-
-          <!-- Selected Products List -->
-          <div class="selected-box">
-            <h3>Selected Products (<span id="selectedCount">0</span>)</h3>
-            <ul id="selectedList" class="selected-list">
-              <li class="empty-msg">No products selected yet.</li>
-            </ul>
-
-            <!-- Action buttons for selected products -->
-            <div id="selectedActions" class="selected-actions hidden">
-              <button type="button" id="generateRoutineBtn" class="generate-btn">
-                Generate Routine
-              </button>
-              <button type="button" id="clearAllBtn" class="clear-btn">
-                Clear All
-              </button>
-            </div>
-          </div>
-        </section>
-
-        <!------- Chat Area ------->
         <section class="chatbox">
           <div id="chatWindow" class="chat-window">
             <!-- messages will be appended here via JS -->
@@ -110,8 +49,9 @@
 
       <!------- Footer Links ------->
       <footer class="site-footer">
-        <p>&copy; 2026 L'Oréal Smart Product Advisor. All rights reserved.</p>
+        <p>&copy; 2025 Company Name. All rights reserved.</p>
         <nav>
+          <!-- These URLs are placeholders -->
           <a href="#">Privacy Policy</a>
           <a href="#">Terms of Use</a>
           <a href="#">Contact</a>
