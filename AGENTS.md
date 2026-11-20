@@ -13,9 +13,16 @@ explaining each part of the code.
 
 ## About this project
 
-Students build a simple chatbot. The user types a message, the frontend
-sends it to a class-hosted Cloudflare Worker, and the assistant's reply
-is displayed in the chat window.
+Students build a product-aware routine builder. Users:
+
+1. Browse L'Oréal products from `products.json` (filtered by category)
+2. Select products they want in their routine
+3. Click "Generate Routine" to have OpenAI build a personalized routine
+4. Ask follow-up questions about the routine in a chat window
+
+Selected products and the ongoing conversation should be sent to the
+Cloudflare Worker as a `messages` array so the AI has context for
+follow-up questions.
 
 ## Security rules — apply to ALL suggestions
 
@@ -43,18 +50,31 @@ is displayed in the chat window.
 ```js
 // ✅ Call the class Cloudflare Worker, no key needed
 const response = await fetch(
-  "https://loreal-chatbot.your-subdomain.workers.dev/",
+  "https://loreal-routine.your-subdomain.workers.dev/",
   {
     method: "POST",
     headers: { "Content-Type": "application/json" },
     body: JSON.stringify({
-      messages: [{ role: "user", content: userInput }],
+      messages: [
+        {
+          role: "system",
+          content: "You are a L'Oréal skincare and beauty advisor...",
+        },
+        { role: "user", content: "Build a routine using these products: ..." },
+      ],
     }),
   },
 );
 const data = await response.json();
 const reply = data.choices[0].message.content;
 ```
+
+## Conversation history
+
+For follow-up questions to work, keep the full conversation in a `messages`
+array and send it on every request. Push each new user message and each
+assistant reply onto the array as the conversation continues — OpenAI is
+stateless and needs the full history every time.
 
 ## Code conventions
 
